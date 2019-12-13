@@ -1,26 +1,28 @@
-function checkIsClosed(str) {
+const checkIsClosed = str => {
     const stack = [];
-    const brackets = {
+    const open = {
+        '{': '}',
+        '[': ']',
         '(': ')'
     }
 
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === '(') {
-            stack.push(str[i])
-        } else {
-            let last = stack.pop()
+    const closed = {
+        '}': true,
+        ']': true,
+        ')': true
+    }
 
-            if (str[i] !== brackets[last]) {
-                return 'NO'
-            }
+    for (let i = 0; i < str.length; i++) {
+
+        let char = str[i];
+
+        if (open[char]) {
+            stack.push(char);
+        } else if (closed[char]) {
+            if (open[stack.pop()] !== char) return "NO";
         }
     }
-
-    if (stack.length !== 0) {
-        return 'NO'
-    }
-
-    return 'YES'
+    return stack.length === 0 ? "YES" : "NO"
 }
 
-console.log(checkIsClosed('(()()())'));
+console.log(checkIsClosed('{[()]}'));

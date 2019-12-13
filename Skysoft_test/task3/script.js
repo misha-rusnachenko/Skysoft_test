@@ -1,9 +1,7 @@
-function isTriangle(a, b, c) {
-    if ( a + b <= c || a + c <= b || b + c <= a ) {
-        return 'not triangle'
-    } else {
-        return 'triangle'
-    }
+const isAnagram = (str1, str2) => {
+    let a = str1.split("").sort().join("")
+    let b = str2.split("").sort().join("")
+    console.log(a === b)
 }
 
-console.log(isTriangle(1, 1, 1));
+isAnagram('fin2der', 'friend2')

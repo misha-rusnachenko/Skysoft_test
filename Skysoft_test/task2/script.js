@@ -1,5 +1,10 @@
-function f(x, y, z) {
-    return ( 1 / (z * Math.sqrt(2 * Math.PI)) ) * Math.exp( - Math.pow((x - y), 2) / (2 * Math.pow(z, 2)))
+const outputNumbers = number => {
+    for (let i = 1; i <= number; i++) {
+        i == 3 ? console.log('tree') :
+        i == 5 ? console.log('five') : 
+        ( i % 3 == 0 && i % 5 == 0 ) ? console.log('treefive') :
+        console.log(i)
+    }
 }
 
-console.log(f(1, 1, 0.25));
+outputNumbers(6)
